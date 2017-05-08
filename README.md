@@ -27,6 +27,8 @@ Before release, attach the binary file you just created to that release.
 
 ### 3. Get SHA256
 
+We have to retrieve SHA256 value from both the source code and binary file.
+
 After release, you should be able to retrieve the compressed source code. For example, if you release a `0.1.0` version. You can download the file through:
 
 ```
@@ -69,7 +71,7 @@ class Rooby < Formula
   sha256 "b866dd040fb1e66b2d16a71e954fa35701ed7794f2d6d8151496947678ff5461"
 
   resource "rooby" do
-    # Update version number
+    # Update file location
     url "https://github.com/rooby-lang/rooby/releases/download/v0.0.1/rooby"
     # Update this SHA256 hash as well
     sha256 "7994dfb02b49c12b3c0946dfb2d35ecd8955137022aa59a2c7491f4cc86b1f4a"
@@ -85,13 +87,21 @@ end
 
 Commit the change afterward.
 
-### 5. Verify
+### 5. Verify Locally
 
-Verify the update by running:
+Run this formula locally to see if it works.
+
+```
+brew install --build-from-source /[path/to/this]/Formula/rooby.rb
+```
+
+Homebrew should update your Rooby to the latest version.
+
+### 6. Verify Remotely
+
+Commit and push the changes after that. Verify again by running:
 
 ```
 brew update
 brew upgrade rooby
 ```
-
-Homebrew should update your Rooby to the latest version.
