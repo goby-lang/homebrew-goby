@@ -11,13 +11,19 @@ brew install rooby
 
 Follow the steps to release a new version of Rooby.
 
-### 1. Update Bin
+### 1. Create a New Binary File
 
-Update `/bin/rooby` file to the latest stable version.
+Create a `rooby` executable by running in the `rooby-lang/rooby` root directory:
+
+```
+go build *.go
+```
 
 ### 2. Release
 
 Go to [releases](https://github.com/rooby-lang/rooby/releases) and create a new release.
+
+Before release, attach the binary file you just created to that release.
 
 ### 3. Get SHA256
 
@@ -39,6 +45,12 @@ which will give you something like:
 (stdin)= c5785c1fb6eddb9e2e5c598cecc5eb83623eda9e380d4656cc0054c5e3cb9a99
 ```
 
+Also, retrieve the hash for the new binary file.
+
+```
+openssl sha256 < rooby
+```
+
 If anything goes wrong with `openssl`, make sure you've updated it to the latest version.
 
 ### 4. Update Formula
@@ -46,17 +58,36 @@ If anything goes wrong with `openssl`, make sure you've updated it to the latest
 Update [/Formula/rooby.rb](https://github.com/rooby-lang/homebrew-rooby/blob/master/Formula/rooby.rb) in this repository. Find the following methods:
 
 ```ruby
-# Update the url to the latest location
-url "https://github.com/rooby-lang/rooby/archive/0.0.1.tar.gz"
-# Update version
-version "0.0.1"
-# Update sha256 hash to the hash we just retrieved
-sha256 "7e98f3a0d9dbc7e5997f3cf59a97c95fc9c2228c6df40f034fca8127b8786d11"
+class Rooby < Formula
+  desc "A new object oriented language written in Go aim at developing microservice efficiently."
+  homepage "https://rooby-lang.github.io/rooby"
+  # Update file location of the source code, retrieved from the release page
+  url "https://github.com/rooby-lang/rooby/archive/v0.0.1.tar.gz"
+  # Update version number
+  version "0.0.1"
+  # Update this SHA256 hash
+  sha256 "b866dd040fb1e66b2d16a71e954fa35701ed7794f2d6d8151496947678ff5461"
+
+  resource "rooby" do
+    # Update version number
+    url "https://github.com/rooby-lang/rooby/releases/download/v0.0.1/rooby"
+    # Update this SHA256 hash as well
+    sha256 "7994dfb02b49c12b3c0946dfb2d35ecd8955137022aa59a2c7491f4cc86b1f4a"
+  end
+
+  def install
+    resource("rooby").stage do
+      bin.install "rooby"
+    end
+  end
+end
 ```
 
-### 5. Push & Verify
+Commit the change afterward.
 
-Commit and push the change. You can verify the update by running:
+### 5. Verify
+
+Verify the update by running:
 
 ```
 brew update
