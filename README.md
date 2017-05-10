@@ -60,7 +60,7 @@ If anything goes wrong with `openssl`, make sure you've updated it to the latest
 Update [/Formula/goby.rb](https://github.com/goby-lang/homebrew-goby/blob/master/Formula/goby.rb) in this repository. Find the following methods:
 
 ```ruby
-class Rooby < Formula
+class Goby < Formula
   desc "A new object oriented language written in Go aim at developing microservice efficiently."
   homepage "https://goby-lang.github.io/goby"
   # Update file location of the source code, retrieved from the release page
