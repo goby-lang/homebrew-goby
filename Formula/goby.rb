@@ -1,4 +1,4 @@
-class Rooby < Formula
+class Goby < Formula
   desc "A new object oriented language written in Go aim at developing microservice efficiently."
   homepage "https://goby-lang.github.io/goby"
   url "https://github.com/goby-lang/goby/archive/v0.0.1.tar.gz"
