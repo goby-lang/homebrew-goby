@@ -11,6 +11,8 @@ class Goby < Formula
   end
 
   def install
+    prefix.install "lib"
+
     resource("goby").stage do
       bin.install "goby"
     end
