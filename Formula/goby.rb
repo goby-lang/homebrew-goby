@@ -22,7 +22,7 @@ class Goby < Formula
       puts "Put the following in a shell config flie. (eg. ~/.bash_profile, ~/.bashrc or ~/.zshrc)"
       puts "Goby will install all libraries to this directory."
       puts ""
-      puts "export GOBY_ROOT=$HOME/goby"
+      puts "export GOBY_ROOT=/usr/local/goby"
       puts ""
       odie "$GOBY_ROOT is not set."
     end
