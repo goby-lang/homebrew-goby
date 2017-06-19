@@ -23,22 +23,23 @@ go build *.go
 
 Go to [releases](https://github.com/goby-lang/goby/releases) and create a new release.
 
-Before release, attach the binary file you just created to that release.
+- Remember to attach a `v` in front of the version number. Version `0.1.0` is tagged as `v0.1.0`. If not, change the corresponding part in the formula as well.
+- Before release, attach the binary file you just created to that release.
 
 ### 3. Get SHA256
 
 We have to retrieve SHA256 value from both the source code and binary file.
 
-After release, you should be able to retrieve the compressed source code. For example, if you release a `0.1.0` version. You can download the file through:
+After release, you should be able to retrieve the compressed source code. For example, if you release a `v0.1.0` version. You can download the file through:
 
 ```
-https://github.com/goby-lang/goby/archive/0.1.0.tar.gz
+https://github.com/goby-lang/goby/archive/v0.1.0.tar.gz
 ```
 
 Run the following command to generate a SHA256 hash for this file:
 
 ```
-openssl sha256 < 0.1.0.tar.gz
+openssl sha256 < v0.1.0.tar.gz
 ```
 
 which will give you something like:
@@ -61,27 +62,14 @@ Update [/Formula/goby.rb](https://github.com/goby-lang/homebrew-goby/blob/master
 
 ```ruby
 class Goby < Formula
-  desc "A new object oriented language written in Go aim at developing microservice efficiently."
-  homepage "https://goby-lang.github.io/goby"
-  # Update file location of the source code, retrieved from the release page
-  url "https://github.com/goby-lang/goby/archive/v0.0.1.tar.gz"
   # Update version number
-  version "0.0.1"
-  # Update this SHA256 hash
-  sha256 "b866dd040fb1e66b2d16a71e954fa35701ed7794f2d6d8151496947678ff5461"
+  VERSION     = "0.1.0"
+  # Update the SHA256 hash for tar.gz file
+  GOBY_SHA256 = "3c3a4e1a237b52a56f4886f4950214402696469fb88402293907c8614823df6b"
+  # Update the SHA256 for uploaded executable
+  EXE_SHA256  = "e6ec1b25531220d473819719829084b516272d4a93aceb821a63bd79c28577ba"
 
-  resource "goby" do
-    # Update file location
-    url "https://github.com/goby-lang/goby/releases/download/v0.0.1/goby"
-    # Update this SHA256 hash as well
-    sha256 "7994dfb02b49c12b3c0946dfb2d35ecd8955137022aa59a2c7491f4cc86b1f4a"
-  end
-
-  def install
-    resource("goby").stage do
-      bin.install "goby"
-    end
-  end
+  # the rest ...
 end
 ```
 
@@ -95,7 +83,7 @@ Run this formula locally to see if it works.
 brew install --build-from-source /[path/to/this]/Formula/goby.rb
 ```
 
-Homebrew should update your goby to the latest version.
+Homebrew should update your Goby to the latest version.
 
 ### 6. Verify Remotely
 
