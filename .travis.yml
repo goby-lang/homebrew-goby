@@ -1,7 +1,7 @@
 os: 
   - osx
 
-before_install:
+before_script:
   - brew install --verbose --debug --build-from-source ./Formula/goby.rb
 
 script:
