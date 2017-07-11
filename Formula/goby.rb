@@ -43,7 +43,6 @@ class Goby < Formula
 
     s = Net::SimpleServer.new(3000)
     puts(s.port)
-
     EOS
 
     assert_equal "3000\n", shell_output("#{bin}/goby hello.gb")
