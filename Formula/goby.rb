@@ -15,6 +15,11 @@ class Goby < Formula
   end
 
   def install
+    target_dir = "/usr/local/goby"
+    prefix.install "lib"
+    system "mkdir", "-p", target_dir
+    system "cp", "-R", prefix/"lib", target_dir
+
     if ENV["GOBY_ROOT"].nil?
       puts ""
       puts "== Configuration Required =="
@@ -26,11 +31,6 @@ class Goby < Formula
       puts ""
       odie "$GOBY_ROOT is not set."
     end
-
-    target_dir = "/usr/local/goby"
-    prefix.install "lib"
-    system "mkdir", "-p", target_dir
-    system "cp", "-R", prefix/"lib", target_dir
 
     resource("goby").stage do
       bin.install "goby"
