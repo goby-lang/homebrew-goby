@@ -27,7 +27,7 @@ class Goby < Formula
       odie "$GOBY_ROOT is not set."
     end
 
-    target_dir = "#{ENV["GOBY_ROOT"]}/lib/#{VERSION}/stdlib"
+    target_dir = "/usr/local/goby"
     prefix.install "lib"
     system "mkdir", "-p", target_dir
     system "cp", "-R", prefix/"lib", target_dir
@@ -35,5 +35,17 @@ class Goby < Formula
     resource("goby").stage do
       bin.install "goby"
     end
+  end
+
+  test do
+    (testpath/"hello.gb").write <<-EOS.undent
+    require "net/simple_server"
+
+    s = Net::SimpleServer.new(3000)
+    puts(s.port)
+
+    EOS
+
+    assert_equal "3000\n", shell_output("#{bin}/goby hello.gb")
   end
 end
