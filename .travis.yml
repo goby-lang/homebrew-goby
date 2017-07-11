@@ -1,0 +1,7 @@
+os: 
+  - osx
+before_install:
+  - brew install --verbose --debug --build-from-source ./Formula/goby.rb
+
+script:
+  - brew test goby
