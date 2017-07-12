@@ -1,7 +1,7 @@
 class Goby < Formula
-  VERSION     = "0.0.8"
-  GOBY_SHA256 = "8fca3aa960dcfaff3d4acd971d53977d98217d1b66bd2d7f543a28890845c1df"
-  EXE_SHA256  = "e73f892374fe24632e0223e375bc37d101144d546f567d39f157b1f535a3f435"
+  VERSION     = "0.0.9"
+  GOBY_SHA256 = "bbde94fec185892f79eaddd82a040fa0a69a263264234f920c827c612f498b07"
+  EXE_SHA256  = "b842cdcb0351edcfe266d1c18be100d152ef3c83e990209e88acff047bc1fa28"
 
   desc "A new object oriented language written in Go aim at developing microservice efficiently."
   homepage "https://goby-lang.github.io/goby"
@@ -19,18 +19,6 @@ class Goby < Formula
     prefix.install "lib"
     system "mkdir", "-p", target_dir
     system "cp", "-R", prefix/"lib", target_dir
-
-    if ENV["GOBY_ROOT"].nil?
-      puts ""
-      puts "== Configuration Required =="
-      puts ""
-      puts "Put the following in a shell config flie. (eg. ~/.bash_profile, ~/.bashrc or ~/.zshrc)"
-      puts "Goby will install all libraries to this directory."
-      puts ""
-      puts "export GOBY_ROOT=/usr/local/goby"
-      puts ""
-      odie "$GOBY_ROOT is not set."
-    end
 
     resource("goby").stage do
       bin.install "goby"
