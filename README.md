@@ -1,6 +1,7 @@
 # homebrew-goby
 [![Build Status](https://travis-ci.org/goby-lang/homebrew-goby.svg?branch=master)](https://travis-ci.org/goby-lang/homebrew-goby)
-This repository allows Rooby language from [goby-lang/goby](https://github.com/goby-lang/goby) to be installed through Homebrew.
+
+This repository allows Goby language from [goby-lang/goby](https://github.com/goby-lang/goby) to be installed through Homebrew.
 
 ```
 brew tap goby-lang/goby
@@ -9,7 +10,7 @@ brew install goby
 
 ## Maintenance
 
-Follow the steps to release a new version of Rooby.
+Follow the steps to release a new version of Goby
 
 ### 1. Create a New Binary File
 
