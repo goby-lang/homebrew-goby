@@ -1,7 +1,7 @@
 class Goby < Formula
-  VERSION     = "0.0.8"
-  GOBY_SHA256 = "8fca3aa960dcfaff3d4acd971d53977d98217d1b66bd2d7f543a28890845c1df"
-  EXE_SHA256  = "e73f892374fe24632e0223e375bc37d101144d546f567d39f157b1f535a3f435"
+  VERSION     = "0.0.9"
+  GOBY_SHA256 = "bbde94fec185892f79eaddd82a040fa0a69a263264234f920c827c612f498b07"
+  EXE_SHA256  = "a153ec87cfaf2ef0520b2a56809877c2e0872fdb54f7264dbdd16371dbd94a5f"
 
   desc "A new object oriented language written in Go aim at developing microservice efficiently."
   homepage "https://goby-lang.github.io/goby"
