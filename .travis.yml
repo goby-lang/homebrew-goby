@@ -6,3 +6,16 @@ before_script:
 
 script:
   - brew test goby
+
+notifications:
+  slack:
+    rooms:
+      - goby-lang:Ler5Uge2Vlx3O8Yt2OFcKg5W#general
+    on_success: always
+    on_failure: always
+    on_start: never
+  email:
+    recipients:
+      - stan001212@gmail.com
+    on_failure: change
+    on_success: never
