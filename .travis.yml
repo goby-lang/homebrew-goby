@@ -1,12 +1,8 @@
 os: 
   - osx
 
-before_script:
-  - brew install --verbose --debug --build-from-source ./Formula/goby.rb
-
 script:
-  - brew list
-  - brew test goby
+  - brew install --verbose --debug --build-from-source ./Formula/goby.rb && brew test goby
 
 notifications:
   slack:
