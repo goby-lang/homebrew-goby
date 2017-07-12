@@ -1,7 +1,7 @@
 class Goby < Formula
   VERSION     = "0.0.9"
-  GOBY_SHA256 = "bbde94fec185892f79eaddd82a040fa0a69a263264234f920c827c612f498b07"
-  EXE_SHA256  = "b842cdcb0351edcfe266d1c18be100d152ef3c83e990209e88acff047bc1fa28"
+  GOBY_SHA256 = "81b0fcff37b5f709aeff4c81a152f6fdae2bfa446293c5139064cb8e113ff99c"
+  EXE_SHA256  = "63bbea1862ce1c7b9fa168f0891c7f5b0d9f76721957fc3606d2f5cbacf3f8d0"
 
   desc "A new object oriented language written in Go aim at developing microservice efficiently."
   homepage "https://goby-lang.github.io/goby"
@@ -15,10 +15,7 @@ class Goby < Formula
   end
 
   def install
-    target_dir = "/usr/local/goby"
     prefix.install "lib"
-    system "mkdir", "-p", target_dir
-    system "cp", "-R", prefix/"lib", target_dir
 
     resource("goby").stage do
       bin.install "goby"
