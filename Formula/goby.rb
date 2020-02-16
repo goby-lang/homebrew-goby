@@ -1,10 +1,10 @@
 class Goby < Formula
-  VERSION     = "0.1.10"
-  GOBY_SHA256 = "ef150b371955b2a8202d121f19eed6b88bdf763965a7a6a060c1006fda3ebb28"
-  EXE_SHA256  = "4582e77a680c78672dcbc8034abdf6b84d48b09f70cee19f8e5509e5434755b8"
+  VERSION     = "0.1.12"
+  GOBY_SHA256 = "08374e8fcfa89ffca8e7086135971517d5460dd9ac4d4be54938cde0ca1b1b32"
+  EXE_SHA256  = "d2779ad65ac01dd3984dfbc64ff89765094f4a417e16036ba066695dc3b7161c"
 
-  desc "A new object oriented language written in Go aim at developing microservice efficiently."
-  homepage "https://goby-lang.github.io/goby"
+  desc "Goby - Yet another programming language written in Go"
+  homepage "https://goby-lang.org"
   url "https://github.com/goby-lang/goby/archive/v#{VERSION}.tar.gz"
   version VERSION
   sha256 GOBY_SHA256
@@ -23,7 +23,7 @@ class Goby < Formula
   end
 
   test do
-    (testpath/"hello.gb").write <<-EOS.undent
+    (testpath/"hello.gb").write <<-EOS
     require "net/simple_server"
 
     s = Net::SimpleServer.new(3000)
