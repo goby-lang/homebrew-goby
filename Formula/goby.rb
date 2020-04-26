@@ -1,7 +1,7 @@
 class Goby < Formula
-  VERSION     = "0.1.12"
-  GOBY_SHA256 = "08374e8fcfa89ffca8e7086135971517d5460dd9ac4d4be54938cde0ca1b1b32"
-  EXE_SHA256  = "d2779ad65ac01dd3984dfbc64ff89765094f4a417e16036ba066695dc3b7161c"
+  VERSION     = "0.1.13"
+  GOBY_SHA256 = "73154c84457ecc66dcbbce7e3b560a1783c2aba604d07c78a1137b09ae3779a8"
+  EXE_SHA256  = "2e6f880df97112303712bda452ceef57438f87ea76d0409546f0e7df5a519740"
 
   desc "Goby - Yet another programming language written in Go"
   homepage "https://goby-lang.org"
